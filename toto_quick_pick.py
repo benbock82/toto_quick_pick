@@ -36,7 +36,7 @@ if __name__ == '__main__':
 # Create a nums variable for user to input a number between 6 to 12.
 # If the number is out of this range, it will keep asking the user to enter the correct number
     nums = int(input('Please enter number between 6 to 12: '))
-    while nums < 6 or nums > 12:
+    while True:
         if nums < 6 or nums > 12:
             nums = int(input('Please enter ONLY number between 6 to 12: '))
         else:
