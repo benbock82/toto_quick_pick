@@ -7,9 +7,11 @@ import random
 
 # define a quick pick function with nums(number of generated numbers) and bets(number of bets)
 def quick_pick(nums, bets):
-    # create a empty all_toto variable to store the list of generated numbers
+    # create an empty all_toto variable to store the list of generated numbers
     all_toto = [] 
     for bet in range(bets):
+        # create an empty one_toto variable to store the generate numbers as to check whether there is any duplication.
+        # If there is duplication, reset and generate again.
         one_toto = []
         while one_toto == []:
             for num in range(nums):
