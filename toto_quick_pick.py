@@ -41,6 +41,12 @@ if __name__ == '__main__':
             nums = int(input('Please enter ONLY number between 6 to 12: '))
         else:
             break
-            
+# Create a nums variable for user to enter numbers of bet (1 and above).
+# If the number is condition, it will keep asking the user to enter the correct number            
     bets = int(input('Please enter the number of bets: '))
+    while True:
+        if bets <= 0:
+            bets = int(input('Please enter only number 1 and above: '))
+        else: 
+            break
     quick_pick(nums, bets)
