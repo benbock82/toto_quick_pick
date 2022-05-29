@@ -4,37 +4,27 @@ There is no limit to the numbers of bets."""
 
 #import random module to generate random numbers
 import random
+import time
 
 # define a quick pick function with nums(number of generated numbers) and bets(number of bets)
 def quick_pick(nums, bets):
-    # create an empty all_toto variable to store the list of generated numbers
-    all_toto = [] 
-    for bet in range(bets):
-        # create an empty one_toto variable to store the generate numbers as to check whether there is any duplication.
-        # If there is duplication, reset and generate again.
-        one_toto = []
-        while one_toto == []:
-            for num in range(nums):
-                # generate a random integral between 1 to 49
-                rand_n = random.randint(1,49)
-                one_toto.append(rand_n)
-            
-            # if there is any duplicate, it will reset
-            if len(one_toto) != len(set(one_toto)):
-                one_toto = []
-
-        # if there is no duplicate, append it to the all_toto    
-        else:
-            all_toto.append(sorted(one_toto))
-    
-    # print each set of generated toto number per line for easy viewing
+    all_toto = []
+    for num_set in range(bets):
+        total_numbers = list(range(1, 50))
+        random_bank = []
+        for i in range(nums):
+            random_one = random.choice(total_numbers)
+            random_bank.append(random_one)
+            total_numbers.remove(random_one)
+        all_toto.append(sorted(random_bank))
     for toto in all_toto:
         print(toto)
-
+    
 
 if __name__ == '__main__':
 # Create a nums variable for user to input a number between 6 to 12.
 # If the number is out of this range, it will keep asking the user to enter the correct number
+    print(f"Welcome to the lucky toto generator!\nYou are the lucky one.")
     nums = int(input('Please enter number between 6 to 12: '))
     while True:
         if nums < 6 or nums > 12:
@@ -42,8 +32,8 @@ if __name__ == '__main__':
         else:
             break
 # Create a nums variable for user to enter numbers of bet (1 and above).
-# If the number is condition, it will keep asking the user to enter the correct number            
-    bets = int(input('Please enter the number of bets: '))
+# If the number is condition, it will keep asking the user to enter the correct number             
+    bets = int(input('Please enter the number of bets (1 and above): '))
     while True:
         if bets <= 0:
             bets = int(input('Please enter only number 1 and above: '))
